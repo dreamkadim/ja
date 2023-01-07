@@ -1,3 +1,11 @@
+/*
+Napisz skrypt, który po kliknięciu przycisku «Start», 
+raz na sekundę zmienia kolor tła <body> na wartość 
+losową używając stylu inline. 
+Po kliknięciu przycisku «Stop», kolor tła powinien 
+przestać się zmieniać.
+*/
+
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
