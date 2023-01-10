@@ -1,5 +1,5 @@
 import flatpickr from 'flatpickr';
-
+import Notiflix from 'notiflix';
 // Dodatkowy import stylów
 import 'flatpickr/dist/flatpickr.min.css';
 import 'flatpickr/dist/themes/dark.css';
@@ -41,14 +41,11 @@ const options = {
   weekNumbers: true,
   onClose(selectedDates) {
     if (selectedDates[0].getTime() <= new Date().getTime()) {
-      window.alert('Please choose a date in the future');
+      // window.alert('Please choose a date in the future');
+      Notiflix.Notify.warning('Please choose a date in the future');
       startBtn.disabled = true;
     } else {
-      console.log(
-        'Do you want to start counting from: ',
-        selectedDates[0],
-        '?'
-      );
+      Notiflix.Notify.info('Press START to fire the countdown');
       startBtn.disabled = false;
     }
   },
@@ -63,6 +60,8 @@ const fp = flatpickr(input, options);
 
 const startCountdown = () => {
   console.log('Let the countdown begin!');
+  startBtn.disabled = true;
+
   const timerId = setInterval(() => {
     let timeRemaining = fp.selectedDates[0].getTime() - new Date().getTime();
     let countDown = convertMs(timeRemaining);
@@ -74,7 +73,7 @@ const startCountdown = () => {
     // console.log(fp.selectedDates[0].getTime() - new Date().getTime());
     if (timeRemaining < 1001) {
       clearInterval(timerId);
-      console.log('Countdown finished ;<');
+      Notiflix.Notify.success('Countdown finished! 😀');
     }
   }, 1000);
 };

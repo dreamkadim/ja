@@ -37,6 +37,7 @@ h1 {
   background-color: #267e1e;
   border-radius: 5px;
   border: 0;
+  cursor: pointer;
 }
 
 .timer {
