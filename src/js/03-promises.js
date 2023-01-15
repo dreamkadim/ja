@@ -8,7 +8,8 @@ const amountInput = parseInt(
 
 const submitBtn = document.querySelector('button[type=submit]');
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', e => {
+  e.preventDefault();
   setTimeout(() => {
     for (let i = 1; i <= amountInput; i++) {
       console.log(i);
