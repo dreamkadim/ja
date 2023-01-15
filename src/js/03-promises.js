@@ -10,7 +10,7 @@ const submitBtn = document.querySelector('button[type=submit]');
 
 submitBtn.addEventListener('click', () => {
   setTimeout(() => {
-    for (let i = 0; i < amountInput; i++) {
+    for (let i = 1; i <= amountInput; i++) {
       console.log(i);
       // return createPromise;
     }
@@ -32,11 +32,10 @@ function createPromise(position, delay) {
   });
 }
 
-//starting code
-// createPromise(2, 1500)
-//   .then(({ position, delay }) => {
-//     Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-//   })
-//   .catch(({ position, delay }) => {
-//     Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
-//   });
+createPromise()
+  .then(({ position, delay }) => {
+    Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  })
+  .catch(({ position, delay }) => {
+    Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
+  });
