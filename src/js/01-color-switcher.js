@@ -21,12 +21,17 @@ let timerID = null;
 //   console.log(`Background color is: ${randomColor}`);
 // }
 
+function changeColor() {
+  const randomColor = getRandomHexColor();
+  body.style.backgroundColor = randomColor;
+  console.log(`Background color is: ${randomColor}`);
+  startBtn.disabled = true;
+}
+
 startBtn.addEventListener('click', () => {
+  changeColor();
   timerID = setInterval(() => {
-    const randomColor = getRandomHexColor();
-    body.style.backgroundColor = randomColor;
-    console.log(`Background color is: ${randomColor}`);
-    startBtn.disabled = true;
+    changeColor();
   }, 1000);
 });
 
