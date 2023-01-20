@@ -23,9 +23,7 @@ function createPromise(position, delay) {
 // add event to button
 submitBtn.addEventListener('click', e => {
   e.preventDefault();
-  console.log(firstDelay.value);
-  console.log(parseInt(firstDelay.value));
-  // console.log(Number(amount.value));
+  console.log('First deley: ', parseInt(firstDelay.value));
   let delay = parseInt(firstDelay.value);
   for (let i = 1; i <= Number(amount.value); i++) {
     createPromise(i, delay)
